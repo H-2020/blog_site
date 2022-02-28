@@ -17,7 +17,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "reviews")
 public class Review {
-
+//git try
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
