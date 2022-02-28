@@ -5,4 +5,6 @@ public interface PostRepo {
     void create();
 
     void delete();
+
+
 }
