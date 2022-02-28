@@ -6,5 +6,5 @@ public interface PostRepo {
 
     void delete();
 
-   // void update();
+
 }
