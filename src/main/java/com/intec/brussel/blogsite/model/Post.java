@@ -1,66 +1,54 @@
 package com.intec.brussel.blogsite.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
 @NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Getter
 @Setter
-@Data
 @Entity
-@Table(name = "post")
-
-
+@Table(name = "posts")
 public class Post {
-
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
 
+    @Column(unique = true)
+    String slug;
+    String title;
+    String content;
 
-    @Column(name = "post_subject")
-    private String postSubject;
-
-    @Column(name = "post_number")
-    private String postNumber;
+   Date published;
 
 
     @ManyToOne
     @JoinColumn(name = "author_id")
-    private Author author;
+    User author;
 
-    private Date date;
-    private String content;
+
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Post)) return false;
         Post post = (Post) o;
-        return id.equals(post.id) && postSubject.equals(post.postSubject) && postNumber.equals(post.postNumber) && author.equals(post.author);
+        return Objects.equals(getId(), post.getId()) && Objects.equals(getSlug(), post.getSlug());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, postSubject, postNumber, author);
+        return Objects.hash(getId(), getSlug());
     }
-
 
     @Override
     public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", postSubject='" + postSubject + '\'' +
-                ", postNumber='" + postNumber + '\'' +
-                ", author=" + author +
-                '}';
+        return this.getSlug();
     }
 }

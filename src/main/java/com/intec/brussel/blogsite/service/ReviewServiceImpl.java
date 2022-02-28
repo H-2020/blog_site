@@ -1,4 +1,4 @@
 package com.intec.brussel.blogsite.service;
 
-public interface CommentService {
+public class ReviewServiceImpl {
 }

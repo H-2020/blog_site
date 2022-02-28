@@ -1,4 +1,4 @@
 package com.intec.brussel.blogsite.service;
 
-public interface BlogVisitorService {
+public interface ReviewService {
 }
