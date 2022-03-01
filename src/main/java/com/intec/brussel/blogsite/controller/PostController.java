@@ -33,7 +33,7 @@ public class PostController {
             Post post = optionalPost.get();
             model.addAttribute("post", optionalPost);
         }
-        return "update_post";
+        return "update:/";
     }
 
     @GetMapping("/deletePost")

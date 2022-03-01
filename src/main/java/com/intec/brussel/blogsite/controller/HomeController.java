@@ -22,7 +22,7 @@ public class HomeController {
     @GetMapping("/")
     public String displayAllPosts(Model model) {
 
-        Collection<Post> posts = this.postService.getAll();
+        Collection<Post> posts = this.postService.getAllPosts();
         model.addAttribute("posts", posts);
 
         return "home";
