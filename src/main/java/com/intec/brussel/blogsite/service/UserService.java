@@ -14,6 +14,6 @@ public interface UserService {
     List<User> getAll();
     User saveNewUser(User user) ;
     void deactivateUser(Long id);
-    void search(String keyword);
+    void search(Long id);
 
 }
