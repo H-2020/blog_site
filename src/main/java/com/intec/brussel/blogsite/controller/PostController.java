@@ -16,23 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PostController {
 
     private final PostService postService;
-    /* @PostMapping("/createComment")
-    public String createComment(@ModelAttribute("comment")Review review){
-        reviewService.createComment(review);
-        return "comment:/";
-    }
 
-    @GetMapping("/showForFormUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") Long id, Model model){
-        Review review  = reviewService.getCommentById(id);
-        model.addAttribute("comment", review);
-        return "update_comment";
-    }
-
-    public String deleteComment(@PathVariable (value = "id") Long id){
-        this.reviewService.deleteCommentById(id);
-        return "redirect:/";
-    }*/
 
     @PostMapping("/createPost")
     public String createPost(@ModelAttribute("comment") Post post){
@@ -40,10 +24,17 @@ public class PostController {
         return "post:/";
     }
 
-    @GetMapping("/showForFormUpdate/{id}")
-    public String showFormForUpdate(@PathVariable(value = "id") Long id, Model model){
+    @GetMapping("/updatePost}")
+    public String updatePost(@PathVariable Long id, Model model){
         Post post  = postService.getPostById(id);
         model.addAttribute("post", post);
         return "update_post";
     }
+
+    @GetMapping("/deletePost/{id}")
+    public String deletePost(@PathVariable Long id ){
+        this.postService.deletePostById(id);
+        return "redirect:/";
+    }
+
 }
