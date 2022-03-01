@@ -52,7 +52,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void search(String keyword) {
+    public void search(Long id) {
+        this.userRepo.findById(id);
 
     }
 }

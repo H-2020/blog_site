@@ -19,7 +19,7 @@ public class CommentController {
         return "comment:/";
     }
 
-    @GetMapping("/showForFormUpdate/{id}")
+    @GetMapping("/showUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") Long id, Model model){
         Review review  = reviewService.getCommentById(id);
         model.addAttribute("comment", review);

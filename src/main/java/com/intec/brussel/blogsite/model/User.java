@@ -33,7 +33,7 @@ public class User {
 
     boolean visitor;
     boolean editor;
-    boolean admin;
+
 
     @Override
     public boolean equals(Object o) {
