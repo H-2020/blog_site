@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Optional;
+
 @Controller
 @RequiredArgsConstructor
 public class PostController {
@@ -18,22 +20,29 @@ public class PostController {
     private final PostService postService;
 
 
-    @PostMapping("/createPost")
-    public String createPost(@ModelAttribute("comment") Post post){
-        postService.createPost(post);
+    @PostMapping("/createNewPost")
+    public String createNewPost(@ModelAttribute Post post) {
+        this.postService.createPost(post);
         return "post:/";
     }
 
-    @GetMapping("/updatePost}")
-    public String updatePost(@PathVariable Long id, Model model){
-        Post post  = postService.getPostById(id);
-        model.addAttribute("post", post);
+    @GetMapping("/updatePost")
+    public String editPost(@PathVariable Long id, Model model) {
+        Optional<Post> optionalPost = postService.getPostById(id);
+        if (optionalPost.isPresent()) {
+            Post post = optionalPost.get();
+            model.addAttribute("post", optionalPost);
+        }
         return "update_post";
     }
 
-    @GetMapping("/deletePost/{id}")
-    public String deletePost(@PathVariable Long id ){
-        this.postService.deletePostById(id);
+    @GetMapping("/deletePost")
+    public String deletePost(@PathVariable Long id) {
+        Optional<Post> optionalPost = this.postService.getPostById(id);
+        if (optionalPost.isPresent()) {
+            Post post = optionalPost.get();
+            this.postService.deletePostById(id);
+        }
         return "redirect:/";
     }
 

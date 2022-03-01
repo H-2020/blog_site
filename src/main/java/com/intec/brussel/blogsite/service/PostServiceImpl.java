@@ -10,10 +10,9 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class PostServiceImpl implements PostService{
+public class PostServiceImpl implements PostService {
 
     private final PostRepo postRepo;
-
 
 
     @Override
@@ -28,15 +27,15 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Post getPostById(Long id) {
-        Optional<Post>optionalPost = postRepo.findById(id);
+    public Optional<Post> getPostById(Long id) {
+        Optional<Post> optionalPost = postRepo.findById(id);
         Post post = null;
         if (optionalPost.isPresent()) {
             post = optionalPost.get();
         } else {
             throw new RuntimeException("Post is not found for id :: " + id);
         }
-        return post;
+        return Optional.of(post);
     }
 
     @Override

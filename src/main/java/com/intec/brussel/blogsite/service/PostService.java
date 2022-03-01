@@ -4,6 +4,7 @@ import com.intec.brussel.blogsite.model.Post;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface PostService {
@@ -12,7 +13,7 @@ public interface PostService {
 
     List<Post> getAllPosts();
 
-    Post getPostById(Long id);
+    Optional<Post> getPostById(Long id);
 
     void deletePostById(Long id);
 
