@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -22,7 +23,9 @@ public class HomeController {
     @GetMapping("/")
     public String displayAllPosts(Model model) {
 
-        Collection<Post> posts = this.postService.getAllPosts();
+
+        List<Post> posts = this.postService.getAllPosts();
+
         model.addAttribute("posts", posts);
 
         return "home";
