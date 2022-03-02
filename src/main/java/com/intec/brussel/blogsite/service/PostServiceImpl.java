@@ -33,7 +33,7 @@ public class PostServiceImpl implements PostService {
         if (optionalPost.isPresent()) {
             post = optionalPost.get();
         } else {
-            throw new RuntimeException("Post is not found for id :: " + id);
+            throw new RuntimeException("Post is not found for this ID : " + id);
         }
         return Optional.of(post);
     }
