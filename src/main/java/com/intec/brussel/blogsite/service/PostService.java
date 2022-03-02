@@ -19,7 +19,7 @@ public interface PostService {
 
     void search(String keyword);
 
-}
 
+}
 
 
