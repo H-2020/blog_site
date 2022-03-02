@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/home")
+@RequestMapping("/")
 public class PostController {
 
     private final PostService postService;
@@ -26,7 +26,7 @@ public class PostController {
 
         model.addAttribute("posts", posts);
 
-        return "home";
+        return "/home";
     }
 
     @PostMapping("/createNewPost")
