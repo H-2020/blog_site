@@ -18,4 +18,8 @@ public interface PostService {
     void deletePostById(Long id);
 
     void search(String keyword);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3fa85e7a791b46e8ae66ee7e48f24aa4af032a1a

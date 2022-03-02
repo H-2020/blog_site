@@ -27,6 +27,8 @@ public class Review {
 
     Integer rating;
 
+    float stars;
+
     @ManyToOne
     @JoinColumn(name="visitor_id")
     User visitor;

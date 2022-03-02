@@ -30,4 +30,15 @@ public class ReviewServiceImpl implements ReviewService {
     public void deleteCommentById(Long id) {
         this.reviewRepo.deleteById(id);
     }
+
+    @Override
+    public void createRating(Review rating) {
+        this.reviewRepo.save(rating);
+
+    }
+
+    @Override
+    public Review getRatingById(Long id) {
+        return null;
+    }
 }
