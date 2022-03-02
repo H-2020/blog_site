@@ -16,6 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
 
     public UserServiceImpl(UserRepo userRepo) {
+        super();
         this.userRepo = userRepo;
     }
 
@@ -38,16 +39,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
+
         return userRepo.findAll();
     }
 
     @Override
     public User saveNewUser(User user) {
+
         return this.userRepo.save(user);
     }
 
     @Override
     public void deactivateUser(Long id) {
+
         this.userRepo.deleteById(id);
     }
 
