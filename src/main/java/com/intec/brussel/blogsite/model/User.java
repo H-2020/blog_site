@@ -11,15 +11,14 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name = "mail", nullable = false)
+    @Column(name = "email", nullable = false)
     String email;
 
     @Column(name = "first_name", nullable = false)
