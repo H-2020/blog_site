@@ -18,5 +18,8 @@ public interface PostService {
     void deletePostById(Long id);
 
     void search(String keyword);
+
+
 }
+
 
