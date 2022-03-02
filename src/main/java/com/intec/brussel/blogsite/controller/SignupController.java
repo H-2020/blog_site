@@ -2,10 +2,11 @@ package com.intec.brussel.blogsite.controller;
 
 import com.intec.brussel.blogsite.model.User;
 import com.intec.brussel.blogsite.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,14 +19,12 @@ import javax.management.relation.RoleNotFoundException;
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 public class SignupController {
 
     private final UserService userService;
 
-    @Autowired
-    public SignupController(UserService userService) {
-        this.userService = userService;
-    }
+
 
     @GetMapping("/signup")
     public String getRegisterForm(Model model) {

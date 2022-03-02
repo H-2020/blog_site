@@ -1,6 +1,7 @@
 package com.intec.brussel.blogsite.controller;
 import com.intec.brussel.blogsite.model.Review;
 import com.intec.brussel.blogsite.service.ReviewService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 @Controller
+@RequiredArgsConstructor
+
 public class CommentController {
 
-    @Autowired
-    private ReviewService reviewService;
+
+    private final ReviewService reviewService;
     @PostMapping("/createComment")
     public String createComment(@ModelAttribute("comment")Review review){
         reviewService.createComment(review);
