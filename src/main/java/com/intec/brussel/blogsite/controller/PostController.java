@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
-@RequestMapping("/")
+@RequestMapping(path="api/v1/blogsite")
 public class PostController {
 
     private final PostService postService;
