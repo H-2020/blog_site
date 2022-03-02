@@ -6,19 +6,28 @@ import com.intec.brussel.blogsite.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/home")
 public class PostController {
 
     private final PostService postService;
 
+    @GetMapping("/posts")
+    public String displayAllPosts(Model model) {
+
+
+        List<Post> posts = this.postService.getAllPosts();
+
+        model.addAttribute("posts", posts);
+
+        return "home";
+    }
 
     @PostMapping("/createNewPost")
     public String createNewPost(@ModelAttribute Post post) {
@@ -45,6 +54,8 @@ public class PostController {
         }
         return "redirect:/";
     }
+
+
 
 
 }
