@@ -1,5 +1,6 @@
 package com.intec.brussel.blogsite.controller;
 
+import com.intec.brussel.blogsite.model.Post;
 import com.intec.brussel.blogsite.model.User;
 import com.intec.brussel.blogsite.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,9 +19,9 @@ public class UserController {
     private final UserService userService;
 
 
-    @GetMapping("/")
+    @GetMapping("/register")
     public String viewHomePage(Model model){
-        model.addAttribute("listUsers",userService.getAll());
+        model.addAttribute("user",new User());
         return "index";
     }
     @GetMapping("/showNewUserForm")
@@ -29,29 +31,59 @@ public class UserController {
         model.addAttribute("user", user);
         return "new_user";
     }
-    @PostMapping("/saveUser")
-    public String saveEmployee(@ModelAttribute("employee") User user){
-        //save employee to database
-        userService.saveNewUser(user);
+
+
+    @PostMapping("/createNewUser")
+    public String createNewUser(@ModelAttribute User user) {
+        this.userService.saveNewUser(user);
         return "redirect:/";
     }
-    @GetMapping("/showFormForUpdate/{id}")
-    public String showFormForUpdate(@PathVariable (value = "id") Long id, Model model){
 
-        //get employee from the services
-        User user =  userService.getUserById(id);
-
-        //set employee as a model attribute to pre-populate the form
-        model.addAttribute("user", user);
-        return "update_user";
+    @GetMapping("/updateUser")
+    public String editUser(@PathVariable Long id, Model model) {
+        Optional<User> optionalUser= userService.getUserById(id);
+        if (optionalUser.isPresent()) {
+            User user= optionalUser.get();
+            model.addAttribute("user", optionalUser);
+        }
+        return "updateuser";
     }
 
-    @GetMapping("/deleteEmployee/{id}")
-    public String deleteUser(@PathVariable(value = "id") Long id){
-        //call delete employee method
-        this.userService.deactivateUser(id);
-        return  "redirect:/";
+    @GetMapping("/deleteUser")
+    public String deletePost(@PathVariable Long id) {
+        Optional<User> optionalUser= userService.getUserById(id);
+        if (optionalUser.isPresent()) {
+            User user= optionalUser.get();
+            this.userService.deactivateUser(id);
+        }
+        return "redirect:/";
     }
+//    @PostMapping("/saveUser")
+//    public String saveEmployee(@ModelAttribute User user){
+//        //save employee to database
+//        this.userService.saveNewUser(user);
+//        return "redirect:/";
+//    }
+//
+//
+//
+//    @GetMapping("/showFormForUpdate/{id}")
+//    public String showFormForUpdate(@PathVariable (value = "id") Long id, Model model){
+//
+//        //get user from the services
+//        User user =  userService.getUserById(id);
+//
+//        //set user as a model attribute to pre-populate the form
+//        model.addAttribute("user", user);
+//        return "update_user";
+//    }
+//
+//    @GetMapping("/deleteEmployee/{id}")
+//    public String deleteUser(@PathVariable(value = "id") Long id){
+//        //call delete employee method
+//        this.userService.deactivateUser(id);
+//        return  "redirect:/";
+//    }
 
 
 

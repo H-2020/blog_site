@@ -1,24 +1,23 @@
 package com.intec.brussel.blogsite.service;
 
+import com.intec.brussel.blogsite.model.Post;
 import com.intec.brussel.blogsite.model.User;
 import com.intec.brussel.blogsite.repository.UserRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-
+@RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepo userRepo;
 
-    public UserServiceImpl(UserRepo userRepo) {
-        super();
-        this.userRepo = userRepo;
-    }
+    private final UserRepo userRepo;
+
+
 
 //    @Override
 //    public Optional<User> findByUsername(String username) {
@@ -26,15 +25,15 @@ public class UserServiceImpl implements UserService {
 //    }
 
     @Override
-    public User getUserById(Long id) {
-        Optional<User> optional=userRepo.findById(id);
+    public Optional<User> getUserById(Long id) {
+        Optional<User> optionalUser=userRepo.findById(id);
         User user=null;
-        if(optional.isPresent()){
-           user=optional.get();
+        if(optionalUser.isPresent()){
+           user=optionalUser.get();
         }else{
             throw new RuntimeException("User not found for id::" +id);
         }
-        return user;
+        return Optional.of(user);
     }
 
     @Override
@@ -44,10 +43,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveNewUser(User user) {
+    public void saveNewUser(User user) {
 
-        return this.userRepo.save(user);
+        this.userRepo.save(user);
     }
+
 
     @Override
     public void deactivateUser(Long id) {
