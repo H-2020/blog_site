@@ -5,4 +5,8 @@ public interface ReviewService {
     void createComment(Review review);
     Review getCommentById(Long id);
     void deleteCommentById(Long id);
+
+    void createRating(Review rating);
+    Review getRatingById(Long id);
+
 }

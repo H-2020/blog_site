@@ -2,29 +2,31 @@ package com.intec.brussel.blogsite.controller;
 
 import com.intec.brussel.blogsite.model.User;
 import com.intec.brussel.blogsite.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.support.SessionStatus;
 
-import javax.management.relation.RoleNotFoundException;
-import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
-public class SignupController {
+@RequiredArgsConstructor
+public class UserController {
 
     private final UserService userService;
 
-    @Autowired
-    public SignupController(UserService userService) {
-        this.userService = userService;
+    @GetMapping("/login")
+    public String login(Principal principal) {
+        // Just curious  what if we get username from Principal instead of SecurityContext
+        if (principal != null) {
+            return "redirect:/";
+            // if user already logged in redirect back to root context
+        } else {
+
+            return "login";
+        }
     }
 
     @GetMapping("/signup")
