@@ -31,6 +31,13 @@ public class Post {
     @JoinColumn(name = "author_id")
     User author;
 
+    public Post(String slug, String title, String content, Date published, User author) {
+        this.slug = slug;
+        this.title = title;
+        this.content = content;
+        this.published = published;
+        this.author = author;
+    }
 
     @Override
     public boolean equals(Object o) {
