@@ -2,7 +2,7 @@ package com.intec.brussel.blogsite.service;
 import com.intec.brussel.blogsite.model.Review;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface ReviewService {
 
     void createComment(Review review);

@@ -8,24 +8,24 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "api/v1/blogsite")
+@RequestMapping(path = "reviews")
 public class ReviewController {
 
 
     private final ReviewService reviewService;
-    @PostMapping("/createComment")
+    @PostMapping("/create")
     public String createComment(@ModelAttribute("comment")Review review){
         reviewService.createComment(review);
         return "comment:/";
     }
 
-    @GetMapping("/showUpdate/{id}")
+    @GetMapping("/update/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") Long id, Model model){
         Review review  = reviewService.getCommentById(id);
         model.addAttribute("comment", review);
         return "update_comment";
     }
-
+    @GetMapping("/delete/{id}")
     public String deleteComment(@PathVariable (value = "id") Long id){
         this.reviewService.deleteCommentById(id);
         return "redirect:/";
