@@ -22,16 +22,13 @@ public class PostController {
     @GetMapping("/posts")
     public String displayAllPosts(Model model) {
 
-
         List<Post> posts = this.postService.getAllPosts();
-
         model.addAttribute("posts", posts);
-
         return "/home";
     }
 
     @PostMapping("/createNewPost")
-    public String createNewPost(@ModelAttribute Post post) {
+    public String createNewPost(@RequestBody Post post) {
         this.postService.createPost(post);
         return "post:/";
     }
