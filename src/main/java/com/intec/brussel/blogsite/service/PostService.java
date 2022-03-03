@@ -7,6 +7,7 @@ import java.util.Optional;
 
 
 public interface PostService {
+    //
 
     void createPost(Post post);
 
