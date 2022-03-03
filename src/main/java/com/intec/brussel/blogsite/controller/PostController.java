@@ -13,7 +13,11 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
+
 @RequestMapping(path = "posts")
+
+
+
 public class PostController {
 
     private final PostService postService;
