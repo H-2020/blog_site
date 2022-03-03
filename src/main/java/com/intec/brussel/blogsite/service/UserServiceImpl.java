@@ -1,13 +1,10 @@
 package com.intec.brussel.blogsite.service;
 
-import com.intec.brussel.blogsite.model.Post;
 import com.intec.brussel.blogsite.model.User;
 import com.intec.brussel.blogsite.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 @RequiredArgsConstructor
@@ -55,9 +52,13 @@ public class UserServiceImpl implements UserService {
         this.userRepo.deleteById(id);
     }
 
-    @Override
-    public void search(Long id) {
-        this.userRepo.findById(id);
+    public List<User> search(String firstName, String lastName) {
+        return this.userRepo.findAllByFirstNameIsLikeOrLastNameIsLike(firstName,lastName);
 
+    }
+
+    @Override
+    public User getUserByFirstNameAndPassword(String firstName, String password){
+        return userRepo.findByFirstNameAndPassword(firstName,password);
     }
 }

@@ -30,8 +30,14 @@ public class User {
     @Column(name = "password", nullable = false)
     String password;
 
-    boolean visitor;
-    boolean editor;
+    @Enumerated(value=EnumType.STRING)
+    Role role;
+
+    boolean authenticated;
+
+    public User(String firstName, String lastName, String email) {
+
+    }
 
 
     @Override
