@@ -45,8 +45,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void search(String keyword) {
-
+    public List<Post> search(String keyword) {
+    return this.postRepo.findAllByTitleIsLikeOrContentIsLike(keyword,keyword);
     }
 
 }
