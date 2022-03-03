@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
 
-public interface UseController {
+public interface IUseController {
 
     String goToLoginPage(Model model, HttpSession httpSession);
     String login(User userReceived, HttpSession httpSession);
