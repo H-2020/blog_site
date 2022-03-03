@@ -1,13 +1,15 @@
 package com.intec.brussel.blogsite.service;
 import com.intec.brussel.blogsite.model.Review;
 import com.intec.brussel.blogsite.repository.ReviewRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+@RequiredArgsConstructor
 @Service
 public class ReviewServiceImpl implements ReviewService {
-    @Autowired
-    private ReviewRepo reviewRepo;
+
+    private final ReviewRepo reviewRepo;
     @Override
     public void createComment(Review review) {
         this.reviewRepo.save(review);
