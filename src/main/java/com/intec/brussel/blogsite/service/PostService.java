@@ -16,6 +16,9 @@ public interface PostService {
 
     void deletePostById(Long id);
 
+
     List<Post> search(String keyword);
+
 }
+
 
