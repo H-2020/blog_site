@@ -13,14 +13,17 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path="api/v1/blogsite")
+
+@RequestMapping(path = "posts")
+
+
 
 public class PostController {
 
     private final PostService postService;
 
-    @GetMapping("/posts")
-    public String displayAllPosts(Model model) {
+    @GetMapping("/all")
+    public String getAll(Model model) {
 
 
         List<Post> posts = this.postService.getAllPosts();
@@ -30,13 +33,13 @@ public class PostController {
         return "/home";
     }
 
-    @PostMapping("/createNewPost")
-    public String createNewPost(@ModelAttribute Post post) {
+    @PostMapping("/create")
+    public String create(@ModelAttribute Post post) {
         this.postService.createPost(post);
         return "post:/";
     }
 
-    @GetMapping("/updatePost")
+    @GetMapping("/update/{id}")
     public String editPost(@PathVariable Long id, Model model) {
         Optional<Post> optionalPost = postService.getPostById(id);
         if (optionalPost.isPresent()) {
@@ -46,7 +49,7 @@ public class PostController {
         return "update:/";
     }
 
-    @GetMapping("/deletePost")
+    @GetMapping("/delete/{id}")
     public String deletePost(@PathVariable Long id) {
         Optional<Post> optionalPost = this.postService.getPostById(id);
         if (optionalPost.isPresent()) {

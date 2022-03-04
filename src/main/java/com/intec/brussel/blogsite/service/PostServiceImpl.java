@@ -4,6 +4,7 @@ import com.intec.brussel.blogsite.model.Post;
 import com.intec.brussel.blogsite.repository.PostRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +17,7 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public void createPost(Post post) {
+    public void createPost(@RequestBody Post post) {
         this.postRepo.save(post);
 
     }
@@ -44,8 +45,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void search(String keyword) {
-
+    public List<Post> search(String keyword) {
+    return this.postRepo.findAllByTitleIsLikeOrContentIsLike(keyword,keyword);
     }
 
 }
