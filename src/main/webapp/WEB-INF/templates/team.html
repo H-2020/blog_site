@@ -4,9 +4,9 @@
 		<title>PHPJabbers.com | Free Blog Website Template</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/src/main/resources/static/assets/bootstrap/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="/src/main/resources/static/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="/src/main/resources/static/assets/css/noscript.css" /></noscript>
+		<link th:href="@{/src/main/resources/static/assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+		<link th:href="@{/src/main/resources/static/assets/css/main.css}" rel="stylesheet" />
+		<noscript><link th:href="@{/src/main/resources/static/assets/css/noscript.css}" rel="stylesheet" /></noscript>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -138,10 +138,10 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="/src/main/resources/static/assets/js/jquery.min.js"></script>
-			<script src="/src/main/resources/static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-			<script src="/src/main/resources/static/assets/js/jquery.scrolly.min.js"></script>
-			<script src="/src/main/resources/static/assets/js/jquery.scrollex.min.js"></script>
-			<script src="/src/main/resources/static/assets/js/main.js"></script>
+		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.min.js}"></script>
+		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrolly.min.js}"></script>
+		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrollex.min.js}"></script>
+		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/main.js}"></script>
 	</body>
 </html>
