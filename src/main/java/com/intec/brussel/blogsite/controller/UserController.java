@@ -70,7 +70,7 @@ public class UserController {
 
         if (httpSession.getAttribute("loggedInUser")==null) {
             model.addAttribute("user", new User(" ", " ", ""));
-            return "loginPage";
+            return "login";
         }
         else
             return "redirect:/";

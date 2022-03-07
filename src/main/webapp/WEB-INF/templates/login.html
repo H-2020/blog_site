@@ -2,17 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{/src/main/resources/static/assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+ <!--   <link th:href="@{/src/main/resources/static/assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
     <link th:href="@{/src/main/resources/static/assets/css/main.css}" rel="stylesheet" />
-    <noscript><link th:href="@{/src/main/resources/static/assets/css/noscript.css}" rel="stylesheet" /></noscript>
+    <noscript><link th:href="@{/src/main/resources/static/assets/css/noscript.css}" rel="stylesheet" /></noscript>-->
     <title>Login</title>
 </head>
 <body>
 
-<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.min.js}"></script>
+<!--<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{/src/main/resources/static/assets/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrolly.min.js}"></script>
 <script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrollex.min.js}"></script>
-<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/main.js}"></script>-->
+<form method="post" th:action = "@{/login}" >
+
+    <input type="text" name="firstName" th:text = "${user.firstName}"><br>
+    <input type="password" name = "password" th:text = "${user.password}"><br>
+    <input type="submit" value="login">
+
+</form>
 </body>
 </html>
