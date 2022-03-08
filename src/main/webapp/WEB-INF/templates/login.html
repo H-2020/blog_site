@@ -9,8 +9,91 @@
     <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
     <title>Login</title>
 </head>
-<body>
+<body class="is-preload">
+<!-- Wrapper -->
+<div id="wrapper">
 
+    <!-- Header -->
+    <header id="header">
+        <div class="inner">
+
+            <!-- Logo -->
+            <a th:href="@{/}" class="logo">
+                <span class="fa fa-pencil"></span> <span class="title">Blog Website</span>
+            </a>
+
+            <!-- Nav -->
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <nav id="menu">
+        <h2>Menu</h2>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+
+            <li><a th:href="@{/blog}" >Blog</a></li>
+
+            <li><a th:href="@{/about}">About</a></li>
+
+            <li><a th:href="@{/team}" class="active">Authors</a></li>
+
+            <li><a th:href="@{/contact}" >Contact Us</a></li>
+
+            <li><a th:href="@{/login}">Login</a></li>
+
+            <li><a th:href="@{/sign-up}">SignUp</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <h1>Login</h1>
+
+            <div class="image main">
+                <img src="/images/banner-image-2-1920x500.jpg" class="img-fluid" alt="" />
+            </div>
+
+            <div class="container">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <section>
+                <ul class="icons">
+                    <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                </ul>
+
+                &nbsp;
+            </section>
+
+            <ul class="copyright">
+                <li>Copyright © 2020 Company Name </li>
+                <li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/jquery.scrolly.min.js"></script>

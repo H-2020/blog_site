@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class NavigationController {
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String getInfo(Model model){
         model.addAttribute("activePage", "index");
         return "index";
@@ -27,16 +27,35 @@ public class NavigationController {
         return "contact";
     }
 
+    @GetMapping("/blog")
+    public String getBlog(Model model){
+        model.addAttribute("activePage", "blog");
+        return "blog";
+    }
     @GetMapping("/team")
     public String getTeam(Model model){
         model.addAttribute("activePage", "team");
         return "team";
     }
 
+    @GetMapping("/login")
+    public String getLogin(Model model){
+        model.addAttribute("activePage", "login");
+        return "login";
+    }
+
+    @GetMapping("/sign-up")
+    public String getSignup(Model model){
+        model.addAttribute("activePage", "sign-up");
+        return "sign-up";
+    }
+
     @GetMapping("/write-post")
     public String getCreatePost(Model model){
-        model.addAttribute("activePage", "contact");
+        model.addAttribute("activePage", "write-post");
         return "write-post";
     }
+
+
 
 }
