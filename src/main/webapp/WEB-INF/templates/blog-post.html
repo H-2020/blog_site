@@ -17,7 +17,7 @@
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
+								<a th:href="@{/}" class="logo">
 									<span class="fa fa-pencil"></span> <span class="title">Blog Website</span>
 								</a>
 
@@ -35,15 +35,19 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a th:href="@{/}">Home</a></li>
 
-							<li><a href="blog.html" class="active">Blog</a></li>
+							<li><a th:href="@{/blog}" class="active">Blog</a></li>
 
-							<li><a href="about.html">About</a></li>
+							<li><a th:href="@{/about}">About</a></li>
 
-							<li><a href="team.html">Authors</a></li>
+							<li><a th:href="@{/team}">Authors</a></li>
 
-							<li><a href="contact.html">Contact Us</a></li>
+							<li><a th:href="@{/contact}">Contact Us</a></li>
+
+							<li><a th:href="@{/login}">Login</a></li>
+
+							<li><a th:href="@{/sign-up}">SignUp</a></li>
 						</ul>
 					</nav>
 
