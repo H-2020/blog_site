@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/assets/css/main.css" />
     <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 </head>
-<body class="is-preload">
+<body class="is-preload" >
 <!-- Wrapper -->
 <div id="wrapper">
 
@@ -35,19 +35,19 @@
     <nav id="menu">
         <h2>Menu</h2>
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a th:href="@{/home}" class="active">Home</a></li>
 
-            <li><a href="blog.html">Blog</a></li>
+            <li><a th:href="@{/blog}">Blog</a></li>
 
-            <li><a href="about.html">About</a></li>
+            <li><a th:href="@{/about}">About</a></li>
 
-            <li><a href="team.html">Authors</a></li>
+            <li><a th:href="@{/authors}">Authors</a></li>
 
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
 
-            <li><a href="login.html">Login</a></li>
+            <li><a th:href="@{/login}">Login</a></li>
 
-            <li><a href="sign-up.html">SignUp</a></li>
+            <li><a th:href="@{/sign-up}">SignUp</a></li>
         </ul>
     </nav>
 

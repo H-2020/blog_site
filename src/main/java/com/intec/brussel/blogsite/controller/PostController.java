@@ -11,21 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
-
-@RequestMapping(path = "posts")
-
-
-
+@RequestMapping("/posts")
 public class PostController {
 
     private final PostService postService;
 
     @GetMapping("/all")
     public String getAll(Model model) {
-
-
         List<Post> posts = this.postService.getAllPosts();
 
         model.addAttribute("posts", posts);
