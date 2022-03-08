@@ -28,6 +28,9 @@ public class User {
     @Column(name = "password", nullable = false)
     String password;
 
+    @Transient
+    private String passwordConfirm;
+
     @Enumerated(value=EnumType.STRING)
     Role role;
 
