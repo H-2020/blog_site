@@ -21,24 +21,25 @@ public class User {
     @Column(name = "email", nullable = false)
     String email;
 
-    @Column(name = "first_name", nullable = false)
-    String firstName;
+    @Column(name = "user_name", nullable = false)
+    String userName;
 
-    @Column(name = "last_name", nullable = false)
-    String lastName;
 
     @Column(name = "password", nullable = false)
     String password;
+
+    @Transient
+    private String passwordConfirm;
 
     @Enumerated(value=EnumType.STRING)
     Role role;
 
     boolean authenticated;
 
-    public User(String firstName, String lastName, String email) {
-
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
-
 
     @Override
     public boolean equals(Object o) {

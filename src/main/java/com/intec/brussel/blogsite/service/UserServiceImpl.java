@@ -52,13 +52,13 @@ public class UserServiceImpl implements UserService {
         this.userRepo.deleteById(id);
     }
 
-    public List<User> search(String firstName, String lastName) {
-        return this.userRepo.findAllByFirstNameIsLikeOrLastNameIsLike(firstName,lastName);
+    public List<User> search(String userName, String email) {
+        return this.userRepo.findAllByUserNameIsLikeOrEmailIsLike(userName,email);
 
     }
 
     @Override
-    public User getUserByFirstNameAndPassword(String firstName, String password){
-        return userRepo.findByFirstNameAndPassword(firstName,password);
+    public User getUserByUserNameAndPassword(String userName, String password){
+        return userRepo.findByUserNameAndPassword(userName,password);
     }
 }

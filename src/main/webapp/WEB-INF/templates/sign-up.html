@@ -64,6 +64,31 @@
 
             <div class="container">
                 <div class="row">
+                    <div align="center">
+                        <h3>Sign Up Form</h3>
+                        <br>
+                        <form th:action="@{/users/registration}" th:object="${signUpForm}" method="POST">
+                            <table>
+                                <tr>
+                                    <td>User Name</td>
+                                    <td><input name="userName" type=""text/></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input name="email" type=""text/></td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input name="password" type=""text/></td>
+                                </tr>
+                            </table>
+                            <input type="submit" value="Sign up"/>
+                        </form>
+
+                </div>
+
+
+
 
                 </div>
             </div>

@@ -12,38 +12,45 @@ import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
-@RequestMapping(path = "users")
+@RequestMapping("/users")
 public class UserController {
 
     private final UserService userService;
 
 
-
-    @GetMapping("/show")
-    public String showNewEmployeeForm(Model model){
-        //create model attribute to bind form data
-        User user = new User();
-        model.addAttribute("user", user);
-        return "new_user";
-    }
-
-
-    @PostMapping("/create")
-    public String createNewUser(@ModelAttribute User user) {
+    @PostMapping("/registration")
+    public String createNewUser(@ModelAttribute ("signupform")User user) {
         this.userService.saveNewUser(user);
-        return "index";
+        return "redirect:/";
     }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("userForm", new User());
 
-        return "signup_form";
+        return "signupform";
     }
 
-    @GetMapping("/update/{id}")
+//    @PostMapping("/sign-up")
+//    public String registration(@ModelAttribute("signupform") User userForm, HttpSession httpSession) {
+//
+//        userService.saveNewUser(userForm);
+//        User foundUser = userService.getUserByUserNameAndPassword(userForm.getUserName(), userForm.getPassword());
+//
+//        if(foundUser==null){            System.out.println("no valid stuff");
+//            return "sign-up";
+//        }
+//        else {
+//            System.out.println("welcome");
+//            httpSession.setAttribute("loggedInUser", userForm.getUserName());
+//            return "redirect/";
+//        }
+//
+//    }
+
+    @GetMapping("/updateUser/{id}")
     public String editUser(@PathVariable(value="id") Long id, Model model) {
         Optional<User> optionalUser= userService.getUserById(id);
         if (optionalUser.isPresent()) {
@@ -53,7 +60,7 @@ public class UserController {
         return "updateuser";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/deleteUser/{id}")
     public String deletePost(@PathVariable(value="id") Long id) {
         Optional<User> optionalUser= userService.getUserById(id);
         if (optionalUser.isPresent()) {
@@ -69,30 +76,14 @@ public class UserController {
     public String goToLoginPage(Model model, HttpSession httpSession) {
 
         if (httpSession.getAttribute("loggedInUser")==null) {
-            model.addAttribute("user", new User(" ", " ", ""));
-            return "loginPage";
+            model.addAttribute("user", new User(" ", " "));
+            return "login";
         }
         else
             return "redirect:/";
     }
 
-    @PostMapping("login")
-    public String login(@ModelAttribute("user") User userReceived, HttpSession httpSession) {
-        System.out.println(userReceived.getFirstName());
-        System.out.println(userReceived.getPassword());
-
-        User foundUser = userService.getUserByFirstNameAndPassword(userReceived.getFirstName(), userReceived.getPassword());
-
-        if(foundUser==null){            System.out.println("no valid stuff");
-            return "redirect:login";
-        }
-        else {
-            System.out.println("welcome");
-            httpSession.setAttribute("loggedInUser", userReceived.getFirstName());
-            return "redirect/";
-        }
-
-    }
+    
     @PostMapping("logout")
     public String logout(HttpSession httpSession){
         httpSession.setAttribute("loggedInUser", null);
