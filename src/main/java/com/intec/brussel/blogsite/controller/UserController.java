@@ -21,13 +21,7 @@ public class UserController {
 
 
 
-    @GetMapping("/show")
-    public String showNewEmployeeForm(Model model){
-        //create model attribute to bind form data
-        User user = new User();
-        model.addAttribute("user", user);
-        return "new_user";
-    }
+
 
 
     @PostMapping("/create")
@@ -40,7 +34,7 @@ public class UserController {
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
 
-        return "signup_form";
+        return "signup-form";
     }
 
     @GetMapping("/update/{id}")
@@ -69,7 +63,7 @@ public class UserController {
     public String goToLoginPage(Model model, HttpSession httpSession) {
 
         if (httpSession.getAttribute("loggedInUser")==null) {
-            model.addAttribute("user", new User(" ", " ", ""));
+            model.addAttribute("user", new User(" ", " "));
             return "login";
         }
         else
@@ -78,17 +72,17 @@ public class UserController {
 
     @PostMapping("login")
     public String login(@ModelAttribute("user") User userReceived, HttpSession httpSession) {
-        System.out.println(userReceived.getFirstName());
+        System.out.println(userReceived.getUserName());
         System.out.println(userReceived.getPassword());
 
-        User foundUser = userService.getUserByFirstNameAndPassword(userReceived.getFirstName(), userReceived.getPassword());
+        User foundUser = userService.getUserByUserNameAndPassword(userReceived.getUserName(), userReceived.getPassword());
 
         if(foundUser==null){            System.out.println("no valid stuff");
-            return "redirect:login";
+            return "sign-up";
         }
         else {
             System.out.println("welcome");
-            httpSession.setAttribute("loggedInUser", userReceived.getFirstName());
+            httpSession.setAttribute("loggedInUser", userReceived.getUserName());
             return "redirect/";
         }
 

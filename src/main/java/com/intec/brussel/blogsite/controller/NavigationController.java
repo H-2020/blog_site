@@ -39,4 +39,16 @@ public class NavigationController {
         return "write-post";
     }
 
+    @GetMapping("/login")
+    public String getLogin(Model model){
+        model.addAttribute("activePage", "login");
+        return "login";
+    }
+
+    @GetMapping("/sign-up")
+    public String getSignup(Model model){
+        model.addAttribute("activePage", "sign-up");
+        return "sign-up";
+    }
+
 }
