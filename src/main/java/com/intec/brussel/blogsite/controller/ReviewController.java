@@ -6,14 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
-@RequestMapping(path = "reviews")
 public class ReviewController {
 
 
     private final ReviewService reviewService;
-    @PostMapping("/create")
+    @PostMapping("/createReviews")
     public String createComment(@ModelAttribute("comment")Review review){
         reviewService.createComment(review);
         return "comment:/";
