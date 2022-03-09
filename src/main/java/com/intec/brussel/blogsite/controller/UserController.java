@@ -50,23 +50,24 @@ public class UserController {
 
     }
 
+
+
     @GetMapping("/update/{id}")
-    public String editUser(@PathVariable(value="id") Long id, Model model) {
-        Optional<User> optionalUser= userService.getUserById(id);
-        if (optionalUser.isPresent()) {
-            User user= optionalUser.get();
-            model.addAttribute("user", optionalUser);
-        }
-        return "update";
+    public String showFormForUpdate(@PathVariable (value = "id") Long id, Model model){
+
+        User user= userService.getUserById(id);
+
+        model.addAttribute("editform", user);
+
+        return "profile";
     }
 
     @GetMapping("/delete/{id}")
     public String deletePost(@PathVariable(value="id") Long id) {
-        Optional<User> optionalUser= userService.getUserById(id);
-        if (optionalUser.isPresent()) {
-            User user= optionalUser.get();
+        User user= userService.getUserById(id);
+
             this.userService.deactivateUser(id);
-        }
+
         return "redirect:/";
     }
 

@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 //    }
 
     @Override
-    public Optional<User> getUserById(Long id) {
+    public User getUserById(Long id) {
         Optional<User> optionalUser = userRepo.findById(id);
         User user = null;
         if (optionalUser.isPresent()) {
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new RuntimeException("User not found for id::" + id);
         }
-        return Optional.of(user);
+        return user;
     }
 
     @Override
