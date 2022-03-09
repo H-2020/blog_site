@@ -66,14 +66,14 @@
 
             <div class="container">
                 <div class="row">
-                    <form th:action="@{/write-post}"  method="post">
+                    <form th:action="@{/posts/create}"  method="post"  >
                         <h2 class="form-heading">Create a Blog</h2>
                         <div class="fields">
                             <div class="field">
-                                <input type="text" name="title" id="name" placeholder="Title" />
+                                <input type="text" name="title" id="title" placeholder="Title"  />
                             </div>
                             <div class="field">
-                                <input type="text" name="subject" id="subject" placeholder="Subject" />
+                                <input type="text" name="content" id="content" placeholder="Content" />
                             </div>
                             <div class="field text-right">
                                 <label>&nbsp;</label>

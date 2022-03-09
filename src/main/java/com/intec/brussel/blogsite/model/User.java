@@ -15,7 +15,7 @@ import java.util.Objects;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
     @Column(name = "email", nullable = false)
@@ -29,7 +29,7 @@ public class User {
     String password;
 
     @Transient
-    private String passwordConfirm;
+     String passwordConfirm;
 
     @Enumerated(value=EnumType.STRING)
     Role role;

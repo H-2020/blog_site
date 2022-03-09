@@ -21,9 +21,10 @@ public class UserController {
 
 
     @PostMapping("/registration")
-    public String createNewUser(@ModelAttribute ("signupform")User user) {
+    public String createNewUser(@ModelAttribute ("signupform") User user) {
+        System.out.println(user);
         this.userService.saveNewUser(user);
-        return "redirect:/";
+        return "redirect:/users/login";
     }
 
     @GetMapping("/register")
@@ -33,22 +34,21 @@ public class UserController {
         return "signupform";
     }
 
-//    @PostMapping("/sign-up")
-//    public String registration(@ModelAttribute("signupform") User userForm, HttpSession httpSession) {
-//
-//        userService.saveNewUser(userForm);
-//        User foundUser = userService.getUserByUserNameAndPassword(userForm.getUserName(), userForm.getPassword());
-//
-//        if(foundUser==null){            System.out.println("no valid stuff");
-//            return "sign-up";
-//        }
-//        else {
-//            System.out.println("welcome");
-//            httpSession.setAttribute("loggedInUser", userForm.getUserName());
-//            return "redirect/";
-//        }
-//
-//    }
+    @PostMapping("/login")
+    public String registration(@ModelAttribute("signupform") User userForm, HttpSession httpSession) {
+
+        User foundUser = userService.getUserByUserNameAndPassword(userForm.getUserName(), userForm.getPassword());
+
+        if(foundUser==null){            System.out.println("no valid stuff");
+            return "sign-up";
+        }
+        else {
+            System.out.println("welcome");
+            httpSession.setAttribute("loggedInUser", userForm.getUserName());
+            return "redirect:/";
+        }
+
+    }
 
     @GetMapping("/updateUser/{id}")
     public String editUser(@PathVariable(value="id") Long id, Model model) {
@@ -83,11 +83,14 @@ public class UserController {
             return "redirect:/";
     }
 
+
     
     @PostMapping("logout")
     public String logout(HttpSession httpSession){
         httpSession.setAttribute("loggedInUser", null);
         return "redirect:login";
     }
+
+
 
 }
