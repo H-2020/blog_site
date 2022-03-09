@@ -2,11 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>PHPJabbers.com | Free Blog Website Template</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/noscript.css"/>
+    </noscript>
     <title>Write Post</title>
 </head>
 <body class="is-preload">
@@ -38,13 +40,13 @@
         <ul>
             <li><a th:href="@{/}">Home</a></li>
 
-            <li><a th:href="@{/blog}" >Blog</a></li>
+            <li><a th:href="@{/blog}">Blog</a></li>
 
             <li><a th:href="@{/about}">About</a></li>
 
             <li><a th:href="@{/team}" class="active">Authors</a></li>
 
-            <li><a th:href="@{/contact}" >Contact Us</a></li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
 
             <li><a th:href="@{/login}">Login</a></li>
 
@@ -59,12 +61,29 @@
             <h1>Write Your First Blog!</h1>
 
             <div class="image main">
-                <img src="/images/banner-image-2-1920x500.jpg" class="img-fluid" alt="" />
+                <img src="/images/banner-image-2-1920x500.jpg" class="img-fluid" alt=""/>
             </div>
 
             <div class="container">
                 <div class="row">
+                    <form th:action="@{/write-post}"  method="post">
+                        <h2 class="form-heading">Create a Blog</h2>
+                        <div class="fields">
+                            <div class="field">
+                                <input type="text" name="title" id="name" placeholder="Title" />
+                            </div>
+                            <div class="field">
+                                <input type="text" name="subject" id="subject" placeholder="Subject" />
+                            </div>
+                            <div class="field text-right">
+                                <label>&nbsp;</label>
 
+                                <ul class="actions">
+                                    <li><input type="submit" value="Send " class="primary" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -85,7 +104,7 @@
             </section>
 
             <ul class="copyright">
-                <li>Copyright © 2020 Company Name </li>
+                <li>Copyright © 2020 Company Name</li>
                 <li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
             </ul>
         </div>
