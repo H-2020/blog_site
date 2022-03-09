@@ -14,8 +14,8 @@ import java.util.Optional;
 public interface UserRepo extends JpaRepository<User, Long> {
 
 
-    List<User> findAllByFirstNameIsLikeOrLastNameIsLike(String firstName, String lastName);
-    User findByFirstNameAndPassword(String firstName, String password);
+    List<User> findAllByUserNameIsLikeOrEmailIsLike(String userName, String email);
+    User findByUserNameAndPassword(String userName, String password);
 
 
 }
