@@ -31,7 +31,7 @@ public class UserController {
     public String showRegistrationForm(Model model) {
         model.addAttribute("userForm", new User());
 
-        return "signupform";
+        return "redirect:/users/login";
     }
 
     @PostMapping("/login")
