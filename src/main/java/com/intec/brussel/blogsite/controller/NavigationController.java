@@ -56,7 +56,11 @@ public class NavigationController {
         return "write-post";
     }
 
-
+    @GetMapping("/blog-post")
+    public String getBlogPost(Model model){
+        model.addAttribute("activePage", "blog-post");
+        return "blog-post";
+    }
 
 
 

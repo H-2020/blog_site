@@ -65,12 +65,12 @@
             <div class="container">
                 <div class="row">
 
-                    <form class="form-signin" method="POST" th:action="@{/login}">
+                    <form class="form-signin" method="POST" th:action="@{/users/login}">
                         <h2 class="form-heading">LOGIN</h2>
 
                         <div class="form-group">
                             <span th:text="${message}"></span>
-                            <input name="username" type="text" class="form-control" placeholder="Username"
+                            <input name="userName" type="text" class="form-control" placeholder="Username"
                                    autofocus="true"/>
 
                             <input name="password" type="password" class="form-control" placeholder="Password"/>
