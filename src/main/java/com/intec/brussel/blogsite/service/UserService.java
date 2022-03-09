@@ -17,4 +17,5 @@ public interface UserService {
 
 
     User getUserByUserNameAndPassword(String userName, String password);
+
 }
