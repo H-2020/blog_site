@@ -2,11 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>PHPJabbers.com | Free Blog Website Template</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/noscript.css"/>
+    </noscript>
     <title>Sign Up</title>
 </head>
 <body class="is-preload">
@@ -38,13 +40,13 @@
         <ul>
             <li><a th:href="@{/}">Home</a></li>
 
-            <li><a th:href="@{/blog}" >Blog</a></li>
+            <li><a th:href="@{/blog}">Blog</a></li>
 
             <li><a th:href="@{/about}">About</a></li>
 
             <li><a th:href="@{/team}" class="active">Authors</a></li>
 
-            <li><a th:href="@{/contact}" >Contact Us</a></li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
 
             <li><a th:href="@{/login}">Login</a></li>
 
@@ -59,7 +61,7 @@
             <h1>Welcome to the Blog Website</h1>
 
             <div class="image main">
-                <img src="/images/banner-image-2-1920x500.jpg" class="img-fluid" alt="" />
+                <img src="/images/banner-image-2-1920x500.jpg" class="img-fluid" alt=""/>
             </div>
 
             <div class="container">
@@ -68,26 +70,25 @@
                         <h3>Sign Up Form</h3>
                         <br>
                         <form th:action="@{/users/registration}" th:object="${signUpForm}" method="POST">
-                            <table>
-                                <tr>
-                                    <td>User Name</td>
-                                    <td><input name="userName" type=""text/></td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td><input name="email" type=""text/></td>
-                                </tr>
-                                <tr>
-                                    <td>Password</td>
-                                    <td><input name="password" type=""text/></td>
-                                </tr>
-                            </table>
-                            <input type="submit" value="Sign up"/>
+
+                            <div class="form-group">
+
+                                <span class="form-label"></span>
+                                <input class="form-control" placeholder="Username" name="username"  type="text" autofocus="true" />
+
+
+                                <span class="form-label"></span>
+                                <input class="form-control" placeholder="Email" name="email" type="text"/>
+
+
+                                <span class="form-label"></span>
+                                <input class="form-control" placeholder="Password" name="password" type="password"/>
+                                <br>
+                                <input type="submit" value="Sign up"/>
+                            </div>
                         </form>
 
-                </div>
-
-
+                    </div>
 
 
                 </div>
@@ -110,7 +111,7 @@
             </section>
 
             <ul class="copyright">
-                <li>Copyright © 2020 Company Name </li>
+                <li>Copyright © 2020 Company Name</li>
                 <li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
             </ul>
         </div>
