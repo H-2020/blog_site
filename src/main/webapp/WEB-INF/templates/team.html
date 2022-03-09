@@ -4,9 +4,9 @@
 		<title>PHPJabbers.com | Free Blog Website Template</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link th:href="@{/src/main/resources/static/assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-		<link th:href="@{/src/main/resources/static/assets/css/main.css}" rel="stylesheet" />
-		<noscript><link th:href="@{/src/main/resources/static/assets/css/noscript.css}" rel="stylesheet" /></noscript>
+		<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -17,7 +17,7 @@
 					<div class="inner">
 
 						<!-- Logo -->
-							<a href="index.html" class="logo">
+							<a th:href="@{/}" class="logo">
 								<span class="fa fa-pencil"></span> <span class="title">Blog Website</span>
 							</a>
 
@@ -35,15 +35,20 @@
 				<nav id="menu">
 					<h2>Menu</h2>
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a th:href="@{/}">Home</a></li>
 
-						<li><a href="blog.html">Blog</a></li>
+						<li><a th:href="@{/blog}" >Blog</a></li>
 
-						<li><a href="about.html">About</a></li>
+						<li><a th:href="@{/about}">About</a></li>
 
-						<li><a href="team.html" class="active">Authors</a></li>
+						<li><a th:href="@{/team}" class="active">Authors</a></li>
 
-						<li><a href="contact.html">Contact Us</a></li>
+						<li><a th:href="@{/contact}" >Contact Us</a></li>
+
+						<li><a th:href="@{/login}">Login</a></li>
+
+						<li><a th:href="@{/sign-up}">SignUp</a></li>
+
 					</ul>
 				</nav>
 
@@ -53,18 +58,18 @@
 							<h1>Team</h1>
 
 							<div class="image main">
-								<img src="/src/main/resources/static/images/banner-image-2-1920x500.jpg" class="img-fluid" alt="" />
+								<img src="/images/banner-image-2-1920x500.jpg" class="img-fluid" alt="" />
 							</div>
 
 							<div class="container">
 								<div class="row">
 									<div class="col-sm-3 text-center">
-										<img src="/src/main/resources/static/images/author-image-1-646x680.jpg" class="img-fluid" alt="" />
+										<img src="/images/Hilal-Demir-Author.png" class="img-fluid" alt="" />
 
-										<h2 class="m-n">John Noe</h2>
+										<h2 class="m-n">Hilal Demir</h2>
 
 										<p>
-											CEO <br>
+											ADMIN <br>
 
 											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
 											<a href="#"><i class="fa fa-linkedin"></i></a>
@@ -72,12 +77,12 @@
 									</div>
 
 									<div class="col-sm-3 text-center">
-										<img src="/src/main/resources/static/images/author-image-2-646x680.jpg" class="img-fluid" alt="" />
+										<img src="/images/Ali-Jamal-Authot.jpg" class="img-fluid" alt="" />
 
-										<h2 class="m-n">Jane Doe</h2>
+										<h2 class="m-n">Ali Jamal</h2>
 
 										<p>
-											Customer Support <br>
+											ADMIN <br>
 
 											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
 											<a href="#"><i class="fa fa-linkedin"></i></a>
@@ -85,12 +90,12 @@
 									</div>
 
 									<div class="col-sm-3 text-center">
-										<img src="/src/main/resources/static/images/author-image-3-646x680.jpg" class="img-fluid" alt="" />
+										<img src="/images/Rahime-Yildiz.jpg" class="img-fluid" alt="" />
 
-										<h2 class="m-n">Merry Smith</h2>
+										<h2 class="m-n">Rahime Yildiz</h2>
 
 										<p>
-											Social Media <br>
+											ADMIN <br>
 
 											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
 											<a href="#"><i class="fa fa-linkedin"></i></a>
@@ -98,12 +103,12 @@
 									</div>
 
 									<div class="col-sm-3 text-center">
-										<img src="/src/main/resources/static/images/author-image-4-646x680.jpg" class="img-fluid" alt="" />
+										<img src="/images/Sinan Hubeyb.jpg" class="img-fluid" alt="" />
 
-										<h2 class="m-n">Jack Dawn</h2>
+										<h2 class="m-n">Sinan Hubeyb</h2>
 
 										<p>
-											Social Media <br>
+											ADMIN <br>
 
 											<a href="#"><i class="fa fa-twitter"></i></a> &nbsp;
 											<a href="#"><i class="fa fa-linkedin"></i></a>
@@ -138,10 +143,11 @@
 			</div>
 
 		<!-- Scripts -->
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/bootstrap/js/bootstrap.bundle.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrolly.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrollex.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/main.js}"></script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="/assets/js/jquery.scrolly.min.js"></script>
+		<script src="/assets/js/jquery.scrollex.min.js"></script>
+		<script src="/assets/js/main.js"></script>
+
 	</body>
 </html>

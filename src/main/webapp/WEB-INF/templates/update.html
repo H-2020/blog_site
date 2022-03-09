@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>PHPJabbers.com | Free Blog Website Template</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/assets/css/main.css"/>
-    <noscript>
-        <link rel="stylesheet" href="/assets/css/noscript.css"/>
-    </noscript>
-    <title>Write Post</title>
+<title>PHPJabbers.com | Free Blog Website Template</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 </head>
 <body class="is-preload">
 <!-- Wrapper -->
@@ -42,15 +38,16 @@
 
             <li><a th:href="@{/blog}">Blog</a></li>
 
-            <li><a th:href="@{/about}">About</a></li>
-
-            <li><a th:href="@{/team}" class="active">Authors</a></li>
-
             <li><a th:href="@{/contact}">Contact Us</a></li>
 
-            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/profile}" >Profile</a></li>
 
-            <li><a th:href="@{/sign-up}">SignUp</a></li>
+            <li><a th:href="@{/update}" class="active">Update</a></li>
+
+            <li><a th:href="@{/delete}" th:action="@{/users/deleteUser/{id}}" >Delete</a></li>
+
+            <li><a th:href="@{/logout}" th:action="@{/users/logout}">Logout</a></li>
+
 
         </ul>
     </nav>
@@ -58,32 +55,15 @@
     <!-- Main -->
     <div id="main">
         <div class="inner">
-            <h1>Write Your First Blog!</h1>
+            <h1>Edit Profile!</h1>
 
             <div class="image main">
-                <img src="/images/banner-image-2-1920x500.jpg" class="img-fluid" alt=""/>
+                <img src="/images/blog-fullscreen-1-1920x700.jpg" class="img-fluid" alt=""/>
             </div>
 
             <div class="container">
                 <div class="row">
-                    <form th:action="@{/posts/create}"  method="post"  >
-                        <h2 class="form-heading">Create a Blog</h2>
-                        <div class="fields">
-                            <div class="field">
-                                <input type="text" name="title" id="title" placeholder="Title"  />
-                            </div>
-                            <div class="field">
-                                <input type="text" name="content" id="content" placeholder="Content" />
-                            </div>
-                            <div class="field text-right">
-                                <label>&nbsp;</label>
 
-                                <ul class="actions">
-                                    <li><input type="submit" value="Send " class="primary" /></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

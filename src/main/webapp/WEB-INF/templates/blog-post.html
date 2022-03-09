@@ -4,9 +4,9 @@
 		<title>PHPJabbers.com | Free Blog Website Template</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link th:href="@{/src/main/resources/static/assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-		<link th:href="@{/src/main/resources/static/assets/css/main.css}" rel="stylesheet" />
-		<noscript><link th:href="@{/src/main/resources/static/assets/css/noscript.css}" rel="stylesheet" /></noscript>
+		<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -17,7 +17,7 @@
 						<div class="inner">
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
+								<a th:href="@{/}" class="logo">
 									<span class="fa fa-pencil"></span> <span class="title">Blog Website</span>
 								</a>
 
@@ -35,15 +35,19 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a th:href="@{/}">Home</a></li>
 
-							<li><a href="blog.html" class="active">Blog</a></li>
+							<li><a th:href="@{/blog}" class="active">Blog</a></li>
 
-							<li><a href="about.html">About</a></li>
+							<li><a th:href="@{/about}">About</a></li>
 
-							<li><a href="team.html">Authors</a></li>
+							<li><a th:href="@{/team}">Authors</a></li>
 
-							<li><a href="contact.html">Contact Us</a></li>
+							<li><a th:href="@{/contact}">Contact Us</a></li>
+
+							<li><a th:href="@{/login}">Login</a></li>
+
+							<li><a th:href="@{/sign-up}">SignUp</a></li>
 						</ul>
 					</nav>
 
@@ -53,7 +57,7 @@
 							<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
 
 							<div class="image main">
-								<img src="/src/main/resources/static/images/blog-fullscreen-1-1920x700.jpg" class="img-fluid" alt="" />
+								<img src="/images/blog-fullscreen-1-1920x700.jpg" class="img-fluid" alt="" />
 							</div>
 
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium maxime enim rem laborum provident culpa, nemo illo voluptatem vero similique, sapiente dolorum tempore, eos facere laboriosam excepturi nisi facilis nulla!</p>
@@ -118,11 +122,11 @@
 			</div>
 
 		<!-- Scripts -->
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/bootstrap/js/bootstrap.bundle.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrolly.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/jquery.scrollex.min.js}"></script>
-		<script type="text/javascript" th:src="@{/src/main/resources/static/assets/js/main.js}"></script>
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="/assets/js/jquery.scrolly.min.js"></script>
+		<script src="/assets/js/jquery.scrollex.min.js"></script>
+		<script src="/assets/js/main.js"></script>
 
 	</body>
 </html>

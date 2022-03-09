@@ -22,5 +22,5 @@ public interface UserService {
     void deactivateUser(Long id);
 
 
-    User getUserByFirstNameAndPassword(String firstName, String password);
+    User getUserByUserNameAndPassword(String userName, String password);
 }
