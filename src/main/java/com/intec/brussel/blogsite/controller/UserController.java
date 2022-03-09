@@ -55,12 +55,12 @@ public class UserController {
     @GetMapping("/update/{id}")
     public String showFormForUpdate(@PathVariable (value = "id") Long id, Model model){
 
-        User user= userService.getUserById(id);
-
-        model.addAttribute("editform", user);
+        model.addAttribute("editform", userService.getUserById(id));
 
         return "profile";
     }
+
+
 
     @GetMapping("/delete/{id}")
     public String deletePost(@PathVariable(value="id") Long id) {
