@@ -24,7 +24,7 @@ public class UserController {
     public String createNewUser(@ModelAttribute ("signupform") User user) {
         System.out.println(user);
         this.userService.saveNewUser(user);
-        return "redirect:/users/login";
+        return "login";
     }
 
     @GetMapping("/register")
@@ -45,22 +45,22 @@ public class UserController {
         else {
             System.out.println("welcome");
             httpSession.setAttribute("loggedInUser", userForm.getUserName());
-            return "redirect:/";
+            return "profile";
         }
 
     }
 
-    @GetMapping("/updateUser/{id}")
+    @GetMapping("/update/{id}")
     public String editUser(@PathVariable(value="id") Long id, Model model) {
         Optional<User> optionalUser= userService.getUserById(id);
         if (optionalUser.isPresent()) {
             User user= optionalUser.get();
             model.addAttribute("user", optionalUser);
         }
-        return "updateuser";
+        return "update";
     }
 
-    @GetMapping("/deleteUser/{id}")
+    @GetMapping("/delete/{id}")
     public String deletePost(@PathVariable(value="id") Long id) {
         Optional<User> optionalUser= userService.getUserById(id);
         if (optionalUser.isPresent()) {
@@ -88,7 +88,7 @@ public class UserController {
     @PostMapping("logout")
     public String logout(HttpSession httpSession){
         httpSession.setAttribute("loggedInUser", null);
-        return "redirect:login";
+        return "redirect:/";
     }
 
 

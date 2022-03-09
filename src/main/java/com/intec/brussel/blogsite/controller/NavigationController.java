@@ -62,6 +62,30 @@ public class NavigationController {
         return "blog-post";
     }
 
+    @GetMapping("/profile")
+    public String getProfile(Model model){
+        model.addAttribute("activePage", "profile");
+        return "profile";
+    }
+
+    @GetMapping("/logout")
+    public String getLogout(Model model){
+        model.addAttribute("activePage", "logout");
+        return "redirect:/";
+    }
+
+    @GetMapping("/update")
+    public String updateProfile(Model model){
+        model.addAttribute("activePage", "update");
+        return "update";
+    }
+
+    @GetMapping("/delete")
+    public String deleteProfile(Model model){
+        model.addAttribute("activePage", "delete");
+        return "redirect:/";
+    }
+
 
 
 }
