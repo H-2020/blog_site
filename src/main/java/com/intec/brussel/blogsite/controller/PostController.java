@@ -30,6 +30,7 @@ public class PostController {
     @PostMapping("/create")
     public String create(@ModelAttribute Post post) {
         this.postService.createPost(post);
+
         return "redirect:/blog-post";
     }
 

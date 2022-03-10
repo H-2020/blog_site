@@ -3296,6 +3296,11 @@ input, select, textarea {
 
 		}
 
+.form-signin{
+	position:relative;
+	left:400px;
+}
+
 /* Wrapper */
 
 	#wrapper > * > .inner {
