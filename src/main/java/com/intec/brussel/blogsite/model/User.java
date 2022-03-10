@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Objects;
 
 @NoArgsConstructor
@@ -18,6 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
+    @Email
     @Column(name = "email", nullable = false)
     String email;
 
