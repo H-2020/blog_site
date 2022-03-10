@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.Objects;
 
@@ -21,7 +22,9 @@ public class Post {
 
     @Column(unique = true)
     String slug;
+    @NotEmpty(message = "Title cannot be empty!")
     String title;
+    @NotEmpty(message = "Content cannot be empty!")
     String content;
 
    Date published;

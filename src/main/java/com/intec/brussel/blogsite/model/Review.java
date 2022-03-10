@@ -28,11 +28,11 @@ public class Review {
     Integer rating;
 
     @ManyToOne
-    @JoinColumn(name="visitor_id")
+    @JoinColumn(name="visitor")
     User visitor;
 
     @ManyToOne
-    @JoinColumn(name="post_id")
+    @JoinColumn(name="post")
     Post post;
 
     @Override
